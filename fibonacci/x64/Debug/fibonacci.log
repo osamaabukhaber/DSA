@@ -1,0 +1,4 @@
+﻿  fibonacci.cpp
+C:\Users\Osama\OneDrive\Documents\Visual Studio 2022\C++ Course\DSA new baghdad\fibonacci\fibonacci\fibonacci.cpp(212,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Osama\OneDrive\Documents\Visual Studio 2022\C++ Course\DSA new baghdad\fibonacci\fibonacci\fibonacci.cpp(34,1): warning C4172: returning address of local variable or temporary: d
+  fibonacci.vcxproj -> C:\Users\Osama\OneDrive\Documents\Visual Studio 2022\C++ Course\DSA new baghdad\fibonacci\x64\Debug\fibonacci.exe
