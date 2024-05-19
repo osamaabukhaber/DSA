@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Osama\\OneDrive\\Documents\\Visual Studio 2022\\C\u002B\u002B Course\\DSA new baghdad\\BinarySearch Tree\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8E4DEB47-20A9-435B-B5D9-219C318D7701}|BinarySearch Tree\\BinarySearch Tree.vcxproj|C:\\Users\\Osama\\OneDrive\\Documents\\Visual Studio 2022\\C\u002B\u002B Course\\DSA new baghdad\\BinarySearch Tree\\BinarySearch Tree\\BinarySearch Tree.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8E4DEB47-20A9-435B-B5D9-219C318D7701}|BinarySearch Tree\\BinarySearch Tree.vcxproj|solutionrelative:BinarySearch Tree\\BinarySearch Tree.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BinarySearch Tree.cpp",
+              "DocumentMoniker": "C:\\Users\\Osama\\OneDrive\\Documents\\Visual Studio 2022\\C\u002B\u002B Course\\DSA new baghdad\\BinarySearch Tree\\BinarySearch Tree\\BinarySearch Tree.cpp",
+              "RelativeDocumentMoniker": "BinarySearch Tree\\BinarySearch Tree.cpp",
+              "ToolTip": "C:\\Users\\Osama\\OneDrive\\Documents\\Visual Studio 2022\\C\u002B\u002B Course\\DSA new baghdad\\BinarySearch Tree\\BinarySearch Tree\\BinarySearch Tree.cpp",
+              "RelativeToolTip": "BinarySearch Tree\\BinarySearch Tree.cpp",
+              "ViewState": "AQIAAKoAAAAAAAAAAAAAALcAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-18T12:41:37.785Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
