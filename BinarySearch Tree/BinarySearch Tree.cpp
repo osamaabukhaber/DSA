@@ -19,7 +19,88 @@ public:
 
 class BST
 {
+
+private:
+
+
 	node* root = nullptr;
+
+	void rec(node* temp, int v)
+	{
+
+		if (v <= temp->data)
+		{
+			if (temp->left == nullptr)
+			{
+				temp->left = new node(v);
+			}
+			else
+			{
+				rec(temp->left, v);
+			}
+		}
+		if (v > temp->data)
+		{
+			if (temp->right == nullptr) {
+				temp->right = new node(v);
+			}
+			else
+			{
+				rec(temp->right, v);
+			}
+		}
+	}
+
+	void Rec2(node* temp, int v)
+	{
+		if (v > temp->data)
+		{
+			if (temp->right != nullptr) {
+				return Rec2(temp->right, v);
+			}
+			else
+				temp->right = new node(v);
+		}
+		else
+			if (temp->left != nullptr) {
+				return Rec2(temp->left, v);
+			}
+			else
+				temp->left = new node(v);
+	}
+
+	int RecMax(node* temp)
+	{
+		if (temp->right == nullptr)
+		{
+			return temp->data;
+		}
+		return RecMax(temp->right);
+	}
+
+	int RecMin(node* temp)
+	{
+		//temp = temp->left;
+		if (temp->left == nullptr)
+		{
+			return temp->data;
+		}
+		return RecMin(temp->left);
+	}
+
+	int RecHeight(node* counter)
+	{
+		if (counter == nullptr)
+			return -1;
+
+		//int LeftSubTree  = RecHeight(counter->left);
+		//int RightSubTree = RecHeight(counter->right);
+
+		//return 1 + max(LeftSubTree, RightSubTree);
+		return 1 + max(RecHeight(counter->left), RecHeight(counter->right));
+
+
+	}
 
 public:
 
@@ -31,107 +112,151 @@ public:
 			return false;
 	}
 
-	void rec(node* temp , int v)
+	// Using Recursion
+
+	void AddRec2(int v)
 	{
-		if (v > temp->data)
+
+		if (IsEmpty() == true)
 		{
-			if (temp->right == nullptr)
-			{
-				
-				temp->right = new node(v);
-
-		    }
-			else 
-			{
-				rec(temp->right, v);
-			}
-
+			root = new node(v);
 		}
-
 		else
-			if (temp->left == nullptr)
-			{
+			Rec2(root, v);
 
-
-				temp->left = new node(v);
-
-			}
-			else
-			{
-				rec(temp->left, v);
-			}
-		
 	}
 
 	void AddRec(int value)
 	{
-	
-
 		if (IsEmpty() == true)
 		{
 			root = new node(value);
-
 		}
 		else
 			rec(root, value);
-
 	}
-	void AddItr(int value)
+
+	int GetMax()
 	{
-		///*node* new_node;
-		//new_node = new node;
-		//new_node->data = value;
-		//new_node->left = nullptr;
-		//new_node->right = nullptr;*/
-		//node n = new node(value);
+		if (IsEmpty() == true)
+			return -1;
+		else
+			return RecMax(root);
+	}
 
+	int GetMin()
+	{
+		if (IsEmpty() == true)
+			return -1;
+		else
+			return RecMin(root);
+	}
 
+	int GetHeight()
+	{
 		if (IsEmpty() == true)
 		{
-			root = new node(value);
-
-		}
-		node* temp = root;
-		node* parent = nullptr;
-		
-
-		while (temp!=nullptr)
-		{
-			parent = temp;
-			if (value <= temp->data)
-				temp=temp->left;
-
-			else
-				temp=temp->right;
-
+			return -1;
 		}
 
-		if (value > parent->data)
-			parent->right = new node(value);
 		else
-			parent->left = new node(value);
-
-
-
-
+			RecHeight(root);
 	}
 
-	// recursion
-	 
-	int GetMax(node* temp )
-	{
-		node* temp = root;
+	//void AddItr(int value)
+	//{
+	//	///*node* new_node;
+	//	//new_node = new node;
+	//	//new_node->data = value;
+	//	//new_node->left = nullptr;
+	//	//new_node->right = nullptr;*/
+	//	//node n = new node(value);
+	//	if (IsEmpty() == true)
+	//	{
+	//		root = new node(value);
+	//	}
+	//	node* temp = root;
+	//	node* parent = nullptr;
+	//	while (temp != nullptr)
+	//	{
+	//		parent = temp;
+	//		if (value <= temp->data)
+	//			temp = temp->left;
+	//		else
+	//			temp = temp->right;
+	//	}
 
-		if (temp->right == nullptr)
+	//	if (value <= parent->data)
+	//		parent->left = new node(value);
+	//	else
+	//		parent->right = new node(value);
+	//}
+
+	// Using Iteration
+
+	void AddItr2(int v)
+	{
+		if (IsEmpty() == true)
 		{
+			root = new node(v);
+		}
+		else {
+			node* NodeV = root;
+
+			if (v > NodeV->data)
+			{
+				while (NodeV->right != nullptr)
+				{
+					NodeV = NodeV->right;
+
+				}
+				NodeV->right = new node(v);
+			}
+			else
+				while (NodeV->left != nullptr)
+				{
+					NodeV = NodeV->left;
+				}
+			NodeV->left = new node(v);
+		}
+	}
+
+	int GetMax2()
+	{
+		if (IsEmpty() == true)
+		{
+			return -1;
+		}
+
+		else {
+			node* temp = root;
+
+			while (temp->right != nullptr)
+			{
+				temp = temp->right;
+			}
 			return temp->data;
 		}
-
-		return GetMax();
-
 	}
 
-	// Iterative
+	int GetMin2()
+	{
+		if (IsEmpty() == true)
+		{
+			return -1;
+		}
+
+		else {
+			node* temp = root;
+
+			while (temp->left != nullptr)
+			{
+				temp = temp->left;
+			}
+			return temp->data;
+		}
+	}
+
 	//int GetMax()
 	//{
 	//	node* temp = root;
@@ -140,8 +265,8 @@ public:
 	//		temp = temp->right;
 	//	}
 	//	return temp->data;
-
 	//}	
+
 	//int GetMin()
 	//{
 	//	node* temp = root;
@@ -153,19 +278,15 @@ public:
 	//			temp = temp->left;
 	//	    }
 	//	return temp->data;
-
-	//}
-	//int GetRoot()
-	//{
-
-	//	return root->data;
-
 	//}
 
-	void display()
+	int GetRoot()
 	{
-		cout << root->data;
+		return root->data;
 	}
+
+
+
 
 };
 
@@ -173,22 +294,28 @@ public:
 
 int main()
 {
-	BST a;
-	a.AddItr(10);
-	a.AddItr(5);
-	a.AddItr(6);
-	a.AddItr(7);
-	a.AddItr(8);
-	a.AddItr(9);
-	a.AddItr(11);
-	a.AddItr(12);
-	a.AddItr(15);
-	//cout << a.GetRoot() << endl;
-	//cout << a.GetMin() << endl;
-	cout << a.GetMax();
-	//a.GetMax();
+	BST bst_obj;
+
+	bst_obj.AddRec2(100);
+	bst_obj.AddRec2(80);
+	bst_obj.AddRec2(120);
+	bst_obj.AddRec2(85);
+	bst_obj.AddRec2(110);
 
 	
+
+
+	cout << bst_obj.GetMax2() << endl;
+	cout << bst_obj.GetMin2() << endl;
+	cout << bst_obj.GetRoot() << endl;
+
+	cout << bst_obj.GetHeight() << endl;
+
+	//cout << a.GetMin() << endl;
+	//cout << a.GetMax() << endl;
+
+
+
 
 
 }
